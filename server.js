@@ -1,11 +1,21 @@
 const path = require('path');
+const http = require('http');
 const express = require('express');
+const socketio = require('socket.io');
 
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Run When Client Connects
+io.on('connection', socket => {
+    console.log('New Connection...');
+});
+
+
 const PORT = 3000 || process.env.PORT;
 
-app.listen(PORT, () => console.log(`Server Running on Port ${PORT}`));
+server.listen(PORT, () => console.log(`Server Running on Port ${PORT}`));
