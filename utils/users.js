@@ -26,7 +26,7 @@ function userLeave(id) {
 // Get Room Users
 function getRoomUsers(room) {
     return users.filter(user => user.room === room);
-}
+} 
 
 module.exports = {
     userJoin,

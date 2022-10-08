@@ -34,10 +34,10 @@ io.on('connection', socket => {
     // Listen for Chat Messages
     socket.on('chatMessage', (msg) => {
         const user = getCurrentUser(socket.id);
-
+ 
         io.to(user.room).emit('message', formatMessage(user.username, msg));
     });
-
+ 
     // Broadcasts When a User Disconnects
     socket.on('disconnect', () => {
         const user = userLeave(socket.id);

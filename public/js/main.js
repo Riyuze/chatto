@@ -5,7 +5,7 @@ const userList = document.getElementById('users');
 
 // Get Username and Room from URL
 const {username, room} = Qs.parse(location.search, {
-    ignoreQueyPrefix: true
+    ignoreQueryPrefix: true
 });
 
 const socket = io();
@@ -16,12 +16,11 @@ socket.emit('joinRoom', {username, room});
 // Get Room and Users
 socket.on('roomUsers', ({room, users}) => {
     outputRoomName(room);
-    outputUsers(room);
-})
+    outputUsers(users);
+});
 
 // Message from Server
 socket.on('message', message => {
-    console.log(message);
     outputMessage(message);
 
     // Scrolls Down
@@ -61,5 +60,10 @@ function outputRoomName(room) {
 
 // Add and Output Users to DOM
 function outputUsers(users) {
-    userList.innerHTML = `${users.map(user => `<li>${user.username}</li>`).join('')}`;
+    userList.innerHTML = '';
+    users.forEach((user) => {
+        const li = document.createElement('li');
+        li.innerText = user.username;
+        userList.appendChild(li);
+    });
 }
