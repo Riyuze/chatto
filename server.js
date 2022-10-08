@@ -15,23 +15,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Run When Client Connects
 io.on('connection', socket => {
-    // Welcomes the Current User
-    socket.emit('message', formatMessage(botName, 'Welcome to Chatto!'));
+    socket.on('joinRoom', ({username, room}) => {
+        
 
-    // Broadcasts When a User Connects
-    socket.broadcast.emit('message', formatMessage(botName, 'A user has joined the chat'));
+        // Welcomes the Current User
+        socket.emit('message', formatMessage(botName, 'Welcome to Chatto!'));
 
-    // Broadcasts When a User Disconnects
-    socket.on('disconnect', () => {
-        io.emit('message', formatMessage(botName, 'A user has left the chat'));
+        // Broadcasts When a User Connects
+        socket.broadcast.emit('message', formatMessage(botName, 'A user has joined the chat'));
     });
 
     // Listen for Chat Messages
     socket.on('chatMessage', (msg) => {
         io.emit('message', formatMessage('User', msg));
     });
-});
 
+    // Broadcasts When a User Disconnects
+    socket.on('disconnect', () => {
+        io.emit('message', formatMessage(botName, 'A user has left the chat'));
+    });
+});
 
 const PORT = 3000 || process.env.PORT;
 
