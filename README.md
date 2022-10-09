@@ -1,2 +1,3 @@
-# chat-room
-A simple chat app with rooms
+# Chatto
+A simple chat app with rooms.
+Built using Express, NodeJs, and SocketIO.
