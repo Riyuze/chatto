@@ -36,6 +36,7 @@ a {
 	color: var(--dark-color-a);
 	border: 0;
 	font-size: 17px;
+	border-radius: 2px;
 }
 
 /* Chat Page */
@@ -45,6 +46,7 @@ a {
 	background: #000a4e;
 	margin: 30px auto;
 	overflow: hidden;
+	border-radius: 5px;
 }
 
 .chat-header {
@@ -72,8 +74,6 @@ a {
 
 .chat-sidebar h2 {
 	font-size: 20px;
-	background: rgba(0, 0, 0, 0.1);
-	padding: 10px;
 	margin-bottom: 20px;
 }
 
@@ -144,6 +144,8 @@ a {
 .join-main {
 	padding: 30px 40px;
 	background: var(--dark-color-b);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .join-main p {
