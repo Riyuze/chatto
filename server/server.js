@@ -1,5 +1,6 @@
 const path = require('path');
 const http = require('http');
+const cors = require('cors');
 const express = require('express');
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
@@ -11,8 +12,10 @@ const io = socketio(server);
 
 const botName = 'Chatto Bot';
 
+app.use(cors());
+
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Run When Client Connects
 io.on('connection', socket => {
