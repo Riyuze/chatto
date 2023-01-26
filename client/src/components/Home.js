@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import {
     Card,
     Spacer,
@@ -16,12 +16,17 @@ class Home extends React.Component {
         super(props);
         this.state = {
             userName: "",
-            room: ""
+            room: "",
+            enter: false,
         }
     }
 
     setRoom = (e) => {
         this.setState({room: e})
+    }
+
+    enterChat = () => {
+        this.setState({ enter: true })
     }
 
     render () {
@@ -64,9 +69,12 @@ class Home extends React.Component {
                         </Dropdown.Menu>
                     </Dropdown>
                     <Spacer y={1} />
-                    <Button>Enter Chat!</Button>
+                    <Button onClick={ this.enterChat }>Enter Chat!</Button>
                     </Card>
                 </Container>
+                {
+                    this.state.enter && <Navigate to="/chat" replace={true} />
+                }
             </div>
         )
     }
