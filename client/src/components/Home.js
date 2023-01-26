@@ -54,7 +54,7 @@ class Home extends React.Component {
                     />
                     <Spacer y={1} />
                     <Dropdown closeOnSelect='true'>
-                        <Dropdown.Button solid='true'>{this.state.room === "" ? "Rooms" : this.state.room}</Dropdown.Button>
+                        <Dropdown.Button flat>{this.state.room === "" ? "Rooms" : this.state.room}</Dropdown.Button>
                         <Dropdown.Menu aria-label='room selection' selectionMode='single' disallowEmptySelection selectedKeys={this.state.room} onSelectionChange={this.setRoom}>
                             <Dropdown.Item key="Gawr">Gawr</Dropdown.Item>
                             <Dropdown.Item key="Nana">Nana</Dropdown.Item>
