@@ -54,7 +54,7 @@ class Home extends React.Component {
                         bordered
                         fullWidth
                         color="primary"
-                        size="lg"
+                        size="md"
                         placeholder="Username"
                     />
                     <Spacer y={1} />
