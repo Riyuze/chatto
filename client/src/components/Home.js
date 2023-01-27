@@ -8,7 +8,7 @@ import {
     Input,
     Container,
     Dropdown
-  } from '@nextui-org/react';
+    } from '@nextui-org/react';
 
 class Home extends React.Component {
 
