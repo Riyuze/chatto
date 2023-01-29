@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Info from './Info'
 
 class ChatBar extends React.Component {
 
@@ -12,8 +13,9 @@ class ChatBar extends React.Component {
 
     render () {
         return (
-            <div className="ChatBar basis-1/3 border-white border-r h-full bg-gray-800">
+            <div className="ChatBar basis-1/4 border-white border-r h-full bg-gray-800">
                 <Navbar />
+                <Info />
             </div>
         )
     }
