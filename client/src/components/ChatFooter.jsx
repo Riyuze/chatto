@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ChatBody extends React.Component {
+class ChatFooter extends React.Component {
 
     constructor(props) {
         super(props);
@@ -11,11 +11,11 @@ class ChatBody extends React.Component {
 
     render () {
         return (
-            <div className="ChatBody">
-                
+            <div className="ChatFooter">
+                ChatFooter
             </div>
         )
     }
 }
 
-export default ChatBody;
+export default ChatFooter;
