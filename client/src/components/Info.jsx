@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+    Card,
+    Text
+} from "@nextui-org/react";
 
 class Info extends React.Component {
 
@@ -12,7 +16,9 @@ class Info extends React.Component {
     render () {
         return (
             <div className="Info">
-                Info
+                <div>
+                    
+                </div>
             </div>
         )
     }
