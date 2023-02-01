@@ -1,5 +1,6 @@
 import React from 'react';
 import Message from './Message';
+import UserMessage from './UserMessage';
 
 class Messages extends React.Component {
 
@@ -12,12 +13,9 @@ class Messages extends React.Component {
 
     render () {
         return (
-            <div className="Messages bg-slate-800 p-3" style={{height: 'calc(100% - 128px)'}}>
+            <div className="Messages bg-slate-800 p-3 overflow-scroll" style={{height: 'calc(100% - 128px)'}}>
                 <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
+                <UserMessage />
             </div>
         )
     }
