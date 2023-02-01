@@ -15,7 +15,7 @@ class ChatBody extends React.Component {
     render () {
         return (
             <div className="ChatBody basis-3/4 h-full">
-                <div className="h-10 bg-slate-900 flex items-center justify-between p-3">
+                <div className="h-16 bg-slate-900 flex items-center justify-between p-3">
                     <Text className="font-bold" css={{
                         textGradient: "45deg, $blue400 -20%, $blue800 50%"
                     }}>Room Name</Text>

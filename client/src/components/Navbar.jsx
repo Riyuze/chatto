@@ -15,7 +15,7 @@ class Navbar extends React.Component {
 
     render () {
         return (
-            <div className="Navbar flex items-center justify-between bg-slate-900 p-3 h-18">
+            <div className="Navbar flex items-center justify-between bg-slate-900 p-3 h-16">
                 <Text size={30} css={{
                 textGradient: "45deg, $blue400 -20%, $blue800 50%",
                 }} className="font-bold pb-1">Chatto</Text>
