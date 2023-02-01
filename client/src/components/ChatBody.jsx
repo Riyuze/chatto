@@ -3,6 +3,7 @@ import {
     Text
 } from '@nextui-org/react';
 import Messages from './Messages';
+import ChatFooter from './ChatFooter';
 
 class ChatBody extends React.Component {
 
@@ -22,6 +23,7 @@ class ChatBody extends React.Component {
                     }}>Room Name</Text>
                 </div>
                 <Messages />
+                <ChatFooter />
             </div>
         )
     }

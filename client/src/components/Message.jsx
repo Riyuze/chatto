@@ -1,11 +1,21 @@
 import React from 'react';
 
-const Message = () => {
-  return (
-    <div className="Message">
-        Message
-    </div>
-  )
+class Message extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        }
+    }
+
+    render () {
+        return (
+            <div className="Message">
+                Message
+            </div>
+        )
+    }
 }
 
-export default Message
+export default Message;
