@@ -12,7 +12,7 @@ class Messages extends React.Component {
 
     render () {
         return (
-            <div className="Messages bg-white p-3">
+            <div className="Messages bg-slate-800 p-3" style={{height: 'calc(100% - 128px)'}}>
                 <Message />
                 <Message />
                 <Message />

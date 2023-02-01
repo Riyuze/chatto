@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+    Input,
+    Button
+} from '@nextui-org/react';
 
 class ChatFooter extends React.Component {
 
@@ -11,8 +15,9 @@ class ChatFooter extends React.Component {
 
     render () {
         return (
-            <div className="ChatFooter">
-                ChatFooter
+            <div className="ChatFooter bg-slate-800 h-16 p-3 flex items-center justify-between">
+                <Input placeholder="Enter Message..." clearable bordered color="primary" type="text" className="px-3" fullWidth/>
+                <Button className="px-3">Send</Button>
             </div>
         )
     }
