@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Text
 } from '@nextui-org/react';
+import Messages from './Messages';
 
 class ChatBody extends React.Component {
 
@@ -20,6 +21,7 @@ class ChatBody extends React.Component {
                         textGradient: "45deg, $blue400 -20%, $blue800 50%"
                     }}>Room Name</Text>
                 </div>
+                <Messages />
             </div>
         )
     }
