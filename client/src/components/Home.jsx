@@ -56,6 +56,7 @@ class Home extends React.Component {
                         color="primary"
                         size="md"
                         placeholder="Username"
+                        onChange={e => this.setState({ userName: e.target.value })}
                     />
                     <Spacer y={1} />
                     <Dropdown closeOnSelect='true'>
