@@ -8,8 +8,7 @@ const ChatFooter = ({socket}) => {
 
     const [message, setMessage] = useState('');
 
-    const sendMessage = (e) => {
-        e.preventDefault();
+    const sendMessage = () => {
         if (message.trim() && localStorage.getItem('userName')) {
             socket.emit('message', {
               text: message,
@@ -23,7 +22,7 @@ const ChatFooter = ({socket}) => {
 
     return (
         <div className="ChatFooter bg-slate-800 h-16 p-3 flex items-center justify-between">
-            <Input placeholder="Enter Message..." clearable bordered color="primary" type="text" className="px-3" fullWidth onChange={e => setMessage(e.target.value)}/>
+            <Input placeholder="Enter Message..." clearable bordered color="primary" type="text" className="px-3" fullWidth onChange={e => setMessage( e.target.value )} value={message}/>
             <Button className="px-3" onPress={ sendMessage }>Send</Button>
         </div>
     )
