@@ -3,14 +3,20 @@ import {
     Button,
     Text
 } from '@nextui-org/react';
+import { Navigate } from 'react-router-dom';
 
 class Navbar extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            
+            leave: false,
         }
+    }
+
+    leaveChat = () => {
+        localStorage.removeItem('userName')
+        this.setState({leave: true})
     }
 
     render() {
@@ -21,8 +27,11 @@ class Navbar extends React.Component {
                 }} className="font-bold pb-1">Chatto</Text>
                 <div className="flex items-center gap-3">
                     <Text size={15}>User</Text>
-                    <Button size="sm" color="primary">Leave</Button>
+                    <Button size="sm" color="primary" onClick={this.leaveChat}>Leave</Button>
                 </div>
+                {
+                    this.state.leave && <Navigate to="/" replace={true} />
+                }
             </div>
         )
     }

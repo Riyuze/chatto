@@ -26,7 +26,7 @@ class Home extends React.Component {
     }
 
     enterChat = () => {
-        console.log(this.state.userName)
+        localStorage.setItem('userName', this.state.userName)
         this.setState({ enter: true })
     }
 
@@ -71,7 +71,11 @@ class Home extends React.Component {
                         </Dropdown.Menu>
                     </Dropdown>
                     <Spacer y={1} />
-                    <Button onClick={ this.enterChat }>Enter Chat!</Button>
+                    {
+                        this.state.userName === "" || this.state.room === "" ? 
+                            <Button disabled>Enter Chat!</Button> :
+                        <Button onClick={ this.enterChat }>Enter Chat!</Button>
+                    }
                     </Card>
                 </Container>
                 {
