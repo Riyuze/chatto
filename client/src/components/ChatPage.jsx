@@ -14,7 +14,7 @@ class ChatPage extends React.Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="ChatPage h-screen items-center justify-center flex">
                 <Container

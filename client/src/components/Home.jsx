@@ -26,10 +26,11 @@ class Home extends React.Component {
     }
 
     enterChat = () => {
+        console.log(this.state.userName)
         this.setState({ enter: true })
     }
 
-    render () {
+    render() {
         return (
             <div className="Home">
                 <Container

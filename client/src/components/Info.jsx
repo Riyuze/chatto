@@ -13,11 +13,17 @@ class Info extends React.Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="Info">
-                <div>
-                    
+                <div className="p-3">
+                    <Card>
+                        <Text className="font-bold bg-slate-900">Active Users</Text>
+                        <div>
+                            <Card.Divider />
+                            <Text>User 1</Text>
+                        </div>
+                    </Card>
                 </div>
             </div>
         )

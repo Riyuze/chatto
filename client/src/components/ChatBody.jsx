@@ -14,7 +14,7 @@ class ChatBody extends React.Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="ChatBody basis-3/4 h-full">
                 <div className="h-16 bg-slate-900 flex items-center justify-between p-3">

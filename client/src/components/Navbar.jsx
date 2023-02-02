@@ -13,7 +13,7 @@ class Navbar extends React.Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="Navbar flex items-center justify-between bg-slate-900 p-3 h-16">
                 <Text size={30} css={{

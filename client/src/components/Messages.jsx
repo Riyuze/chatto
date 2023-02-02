@@ -11,7 +11,7 @@ class Messages extends React.Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="Messages bg-slate-800 p-3 overflow-scroll" style={{height: 'calc(100% - 128px)'}}>
                 <Message />

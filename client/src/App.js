@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import socketIO from 'socket.io-client';
 import { createTheme, NextUIProvider} from "@nextui-org/react";
@@ -18,19 +19,28 @@ const theme = createTheme({
   }
 })
 
-function App() {
-  return (
-    <NextUIProvider theme={theme}>
-        <BrowserRouter>
-            <div className="App">
-                <Routes>
-                    <Route path="/" element={<Home socket={socket} />}></Route>
-                    <Route path="/chat" element={<ChatPage socket={socket} />}></Route>
-                </Routes>
-            </div>
-        </BrowserRouter>
-    </NextUIProvider>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  render () {
+      return (
+          <NextUIProvider theme={theme}>
+              <BrowserRouter>
+                  <div className="App">
+                      <Routes>
+                          <Route path="/" element={<Home socket={socket} />}></Route>
+                          <Route path="/chat" element={<ChatPage socket={socket} />}></Route>
+                      </Routes>
+                  </div>
+              </BrowserRouter>
+          </NextUIProvider>
+      );
+  }
 }
 
 export default App;

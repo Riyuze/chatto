@@ -12,7 +12,7 @@ class Message extends React.Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="Message flex gap-5 mb-5 items-center p-2">
                 <div>

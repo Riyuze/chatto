@@ -12,7 +12,7 @@ class UserMessage extends React.Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="UserMessage flex flex-row-reverse gap-5 mb-5 items-center p-2">
                 <div>
