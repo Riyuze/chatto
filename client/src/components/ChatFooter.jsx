@@ -14,7 +14,14 @@ class ChatFooter extends React.Component {
     }
 
     sendMessage = () => {
-        console.log( localStorage.getItem('userName'), this.state.message )
+        if (this.state.message.trim() && localStorage.getItem('userName')) {
+            this.props.socket.emit('message', {
+                text: this.state.message,
+                name: localStorage.getItem('userName'),
+                id: `${this.props.socket.id}${Math.random()}`,
+                socketID: this.props.socket.id,
+            });
+        }
         this.setState({ message: "" })
     }
 

@@ -18,12 +18,9 @@ socketIO.on('connection', (socket) => {
     socket.on('disconnect', () => {
       console.log('🔥: A user disconnected');
     });
-});
-
-app.get('/api', (req, res) => {
-    res.json({
-        message: "Hello World",
-    });
+    socket.on('message', (data) => {
+        socketIO.emit('messageResponse', data)
+    })
 });
 
 http.listen(PORT, () => {

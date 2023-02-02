@@ -11,9 +11,11 @@ class ChatPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            messages: [],
         }
     }
+
+    
 
     render() {
         return (
@@ -26,7 +28,7 @@ class ChatPage extends React.Component {
                     <ChatBar />
                     <div className="flex flex-col w-3/4">
                         <ChatBody />    
-                        <ChatFooter />  
+                        <ChatFooter socket={this.props.socket} />  
                     </div>     
                 </Container>
             </div>
