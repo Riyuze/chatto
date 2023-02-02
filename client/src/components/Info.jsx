@@ -4,30 +4,20 @@ import {
     Text
 } from "@nextui-org/react";
 
-class Info extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        }
-    }
-
-    render() {
-        return (
-            <div className="Info">
-                <div className="p-3">
-                    <Card>
-                        <Text className="font-bold bg-slate-900">Active Users</Text>
-                        <div>
-                            <Card.Divider />
-                            <Text>User 1</Text>
-                        </div>
-                    </Card>
-                </div>
+const Info = () => {
+    return (
+        <div className="Info">
+            <div className="p-3">
+                <Card>
+                    <Text className="font-bold bg-slate-900">Active Users</Text>
+                    <div>
+                        <Card.Divider />
+                        <Text>User 1</Text>
+                    </div>
+                </Card>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Info;

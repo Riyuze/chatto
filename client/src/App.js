@@ -19,29 +19,19 @@ const theme = createTheme({
   }
 })
 
-class App extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-
-    }
-}
-
-  render () {
-      return (
-          <NextUIProvider theme={theme}>
-              <BrowserRouter>
-                  <div className="App">
-                      <Routes>
-                          <Route path="/" element={<Home socket={socket} />}></Route>
-                          <Route path="/chat" element={<ChatPage socket={socket} />}></Route>
-                      </Routes>
-                  </div>
-              </BrowserRouter>
-          </NextUIProvider>
-      );
-  }
+const App = () => {
+    return (
+        <NextUIProvider theme={theme}>
+            <BrowserRouter>
+                <div className="App">
+                    <Routes>
+                        <Route path="/" element={<Home socket={socket} />}></Route>
+                        <Route path="/chat" element={<ChatPage socket={socket} />}></Route>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </NextUIProvider>
+    );
 }
 
 export default App;
