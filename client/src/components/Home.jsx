@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Card,
     Spacer,
@@ -10,80 +10,68 @@ import {
     Dropdown
     } from '@nextui-org/react';
 
-class Home extends React.Component {
+const Home = () => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            userName: "",
-            room: "",
-            enter: false,
-        }
+    const [room, setRoom] = useState('');
+
+    const [userName, setUserName] = useState('');
+
+    const navigate = useNavigate();
+
+    const enterChat = () => {
+        localStorage.setItem('userName', userName);
+        navigate('/chat');
     }
 
-    setRoom = (e) => {
-        this.setState({room: e})
-    }
-
-    enterChat = () => {
-        localStorage.setItem('userName', this.state.userName)
-        this.setState({ enter: true })
-    }
-
-    render() {
-        return (
-            <div className="Home">
-                <Container
-                    display="flex"
-                    alignItems="center"
-                    justify="center"
-                    css={{ minHeight: '100vh' }}
+    return (
+        <div className="Home">
+            <Container
+                display="flex"
+                alignItems="center"
+                justify="center"
+                css={{ minHeight: '100vh' }}
+            >
+                <Card css={{ mw: '420px', p: '20px' }}>
+                <Text
+                    size={24}
+                    weight="bold"
+                    css={{
+                    as: 'center',
+                    mb: '20px',
+                    }}
                 >
-                    <Card css={{ mw: '420px', p: '20px' }}>
-                    <Text
-                        size={24}
-                        weight="bold"
-                        css={{
-                        as: 'center',
-                        mb: '20px',
-                        }}
-                    >
-                        Chatto
-                    </Text>
-                    <Input
-                        clearable
-                        bordered
-                        fullWidth
-                        color="primary"
-                        size="md"
-                        placeholder="Username"
-                        onChange={e => this.setState({ userName: e.target.value })}
-                    />
-                    <Spacer y={1} />
-                    <Dropdown closeOnSelect='true'>
-                        <Dropdown.Button flat>{this.state.room === "" ? "Rooms" : this.state.room}</Dropdown.Button>
-                        <Dropdown.Menu aria-label='room selection' selectionMode='single' disallowEmptySelection selectedKeys={this.state.room} onSelectionChange={this.setRoom}>
-                            <Dropdown.Item key="Gawr">Gawr</Dropdown.Item>
-                            <Dropdown.Item key="Nana">Nana</Dropdown.Item>
-                            <Dropdown.Item key="Zeta">Zeta</Dropdown.Item>
-                            <Dropdown.Item key="Watson">Watson</Dropdown.Item>
-                            <Dropdown.Item key="Kanaeru">Kanaeru</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                    <Spacer y={1} />
-                    {
-                        this.state.userName === "" || this.state.room === "" ? 
-                            <Button disabled>Enter Chat!</Button> :
-                        <Button onPress={ this.enterChat }>Enter Chat!</Button>
-                    }
-                    </Card>
-                </Container>
+                    Chatto
+                </Text>
+                <Input
+                    clearable
+                    bordered
+                    fullWidth
+                    color="primary"
+                    size="md"
+                    placeholder="Username"
+                    onChange={e => setUserName(e.target.value)}
+                />
+                <Spacer y={1} />
+                <Dropdown closeOnSelect='true'>
+                    <Dropdown.Button flat>{room === "" ? "Rooms" : room}</Dropdown.Button>
+                    <Dropdown.Menu aria-label='room selection' selectionMode='single' disallowEmptySelection selectedKeys={room} onSelectionChange={setRoom}>
+                        <Dropdown.Item key="Gawr">Gawr</Dropdown.Item>
+                        <Dropdown.Item key="Nana">Nana</Dropdown.Item>
+                        <Dropdown.Item key="Zeta">Zeta</Dropdown.Item>
+                        <Dropdown.Item key="Watson">Watson</Dropdown.Item>
+                        <Dropdown.Item key="Kanaeru">Kanaeru</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Spacer y={1} />
                 {
-                    this.state.enter && <Navigate to="/chat" replace={true} />
+                    userName === "" || room === "" ? 
+                        <Button disabled>Enter Chat!</Button> :
+                    <Button onPress={ enterChat }>Enter Chat!</Button>
                 }
-            </div>
-        )
-    }
+                </Card>
+            </Container>
+        </div>
+    )
 }
 
 export default Home;

@@ -6,34 +6,22 @@ import {
     Container,
     } from '@nextui-org/react';
 
-class ChatPage extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            messages: [],
-        }
-    }
-
-    
-
-    render() {
-        return (
-            <div className="ChatPage h-screen items-center justify-center flex w-screen">
-                <Container
-                    display="flex"
-                    css={{padding: "0px"}}
-                    className="h-3/4 border-white border rounded-xl overflow-hidden"
-                >
-                    <ChatBar />
-                    <div className="flex flex-col w-3/4">
-                        <ChatBody />    
-                        <ChatFooter socket={this.props.socket} />  
-                    </div>     
-                </Container>
-            </div>
-        )
-    }
+const ChatPage = ({socket}) => {
+    return (
+        <div className="ChatPage h-screen items-center justify-center flex w-screen">
+            <Container
+                display="flex"
+                css={{padding: "0px"}}
+                className="h-3/4 border-white border rounded-xl overflow-hidden"
+            >
+                <ChatBar />
+                <div className="flex flex-col w-3/4">
+                    <ChatBody />    
+                    <ChatFooter socket={socket} />  
+                </div>     
+            </Container>
+        </div>
+    )
 }
 
 export default ChatPage;

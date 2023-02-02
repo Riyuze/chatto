@@ -1,38 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Input,
     Button
 } from '@nextui-org/react';
 
-class ChatFooter extends React.Component {
+const ChatFooter = ({socket}) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            message: ""
-        }
-    }
+    const [message, setMessage] = useState('');
 
-    sendMessage = () => {
-        if (this.state.message.trim() && localStorage.getItem('userName')) {
-            this.props.socket.emit('message', {
-                text: this.state.message,
-                name: localStorage.getItem('userName'),
-                id: `${this.props.socket.id}${Math.random()}`,
-                socketID: this.props.socket.id,
+    const sendMessage = (e) => {
+        e.preventDefault();
+        if (message.trim() && localStorage.getItem('userName')) {
+            socket.emit('message', {
+              text: message,
+              name: localStorage.getItem('userName'),
+              id: `${socket.id}${Math.random()}`,
+              socketID: socket.id,
             });
-        }
-        this.setState({ message: "" })
-    }
+          }
+          setMessage('');
+    };
 
-    render() {
-        return (
-            <div className="ChatFooter bg-slate-800 h-16 p-3 flex items-center justify-between">
-                <Input placeholder="Enter Message..." clearable bordered color="primary" type="text" className="px-3" fullWidth onChange={e => this.setState({ message: e.target.value })}/>
-                <Button className="px-3" onPress={ this.sendMessage }>Send</Button>
-            </div>
-        )
-    }
+    return (
+        <div className="ChatFooter bg-slate-800 h-16 p-3 flex items-center justify-between">
+            <Input placeholder="Enter Message..." clearable bordered color="primary" type="text" className="px-3" fullWidth onChange={e => setMessage(e.target.value)}/>
+            <Button className="px-3" onPress={ sendMessage }>Send</Button>
+        </div>
+    )
 }
 
 export default ChatFooter;
