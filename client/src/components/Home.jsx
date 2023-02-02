@@ -74,7 +74,7 @@ class Home extends React.Component {
                     {
                         this.state.userName === "" || this.state.room === "" ? 
                             <Button disabled>Enter Chat!</Button> :
-                        <Button onClick={ this.enterChat }>Enter Chat!</Button>
+                        <Button onPress={ this.enterChat }>Enter Chat!</Button>
                     }
                     </Card>
                 </Container>

@@ -27,7 +27,7 @@ class Navbar extends React.Component {
                 }} className="font-bold pb-1">Chatto</Text>
                 <div className="flex items-center gap-3">
                     <Text size={15}>User</Text>
-                    <Button size="sm" color="primary" onClick={this.leaveChat}>Leave</Button>
+                    <Button size="sm" color="primary" onPress={ this.leaveChat }>Leave</Button>
                 </div>
                 {
                     this.state.leave && <Navigate to="/" replace={true} />
