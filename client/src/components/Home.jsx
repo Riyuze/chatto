@@ -20,7 +20,7 @@ const Home = ({socket}) => {
 
     const enterChat = () => {
         localStorage.setItem('userName', userName);
-        socket.emit('newUser', { userName, socketID: socket.id })
+        socket.emit('newUser', { userName, socketID: socket.id });
         navigate('/chat');
     }
 
