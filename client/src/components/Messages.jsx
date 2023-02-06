@@ -5,7 +5,7 @@ import UserMessage from './UserMessage';
 const Messages = ({messages}) => {
 
     return (
-        <div className="Messages bg-slate-800 p-3 overflow-y-scroll h-chat">
+        <div className="Messages bg-slate-800 overflow-y-scroll p-3 h-[calc(100%-64px)]">
             {
                 messages.map((message) => 
                     message.name === localStorage.getItem('userName') ? 

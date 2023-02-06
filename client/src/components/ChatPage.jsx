@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ChatBar from './ChatBar';
 import ChatBody from './ChatBody';
-import ChatFooter from './ChatFooter';
 import { 
     Container,
     } from '@nextui-org/react';
@@ -22,10 +21,9 @@ const ChatPage = ({socket}) => {
                 className="h-3/4 border-white border rounded-xl overflow-hidden"
             >
                 <ChatBar socket={socket} />
-                <div className="flex flex-col w-3/4">
-                    <ChatBody messages={messages} />    
-                    <ChatFooter socket={socket} />  
-                </div>     
+                <div className="w-3/4 h-[calc(100%-64px)]">
+                    <ChatBody messages={messages} socket={socket} />
+                </div>
             </Container>
         </div>
     )

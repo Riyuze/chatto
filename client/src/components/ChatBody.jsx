@@ -3,8 +3,9 @@ import {
     Text
 } from '@nextui-org/react';
 import Messages from './Messages';
+import ChatFooter from './ChatFooter';
 
-const ChatBody = ({messages}) => {
+const ChatBody = ({messages, socket}) => {
     return (
         <div className="ChatBody h-full">
             <div className="h-16 bg-slate-900 flex items-center justify-between p-3">
@@ -13,6 +14,7 @@ const ChatBody = ({messages}) => {
                 }}>Room Name</Text>
             </div>
             <Messages messages={messages} />
+            <ChatFooter socket={socket} />  
         </div>
     )
 }
