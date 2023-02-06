@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Card,
     Text
 } from "@nextui-org/react";
 
-const Info = () => {
+const Info = ({socket}) => {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        socket.on('newUserResponse', (data) => setUsers(data));
+    }, [socket, users]);
+
     return (
         <div className="Info">
             <div className="p-3">

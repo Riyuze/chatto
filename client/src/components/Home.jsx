@@ -10,7 +10,7 @@ import {
     Dropdown
     } from '@nextui-org/react';
 
-const Home = () => {
+const Home = ({socket}) => {
 
     const [room, setRoom] = useState('');
 
@@ -20,6 +20,7 @@ const Home = () => {
 
     const enterChat = () => {
         localStorage.setItem('userName', userName);
+        socket.emit('newUser', { userName, socketID: socket.id })
         navigate('/chat');
     }
 
