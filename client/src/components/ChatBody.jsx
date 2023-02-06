@@ -2,7 +2,8 @@ import React from 'react';
 import {
     Text
 } from '@nextui-org/react';
-import Messages from './Messages';
+import Message from './Message';
+import UserMessage from './UserMessage';
 
 const ChatBody = () => {
     return (
@@ -12,7 +13,10 @@ const ChatBody = () => {
                     textGradient: "45deg, $blue400 -20%, $blue800 50%"
                 }}>Room Name</Text>
             </div>
-            <Messages />
+            <div className="bg-slate-800 p-3 overflow-scroll" style={{height: 'calc(100% - 64px)'}}>
+                <Message />
+                <UserMessage />
+            </div>
         </div>
     )
 }

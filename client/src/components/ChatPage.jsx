@@ -21,9 +21,9 @@ const ChatPage = ({socket}) => {
                 css={{padding: "0px"}}
                 className="h-3/4 border-white border rounded-xl overflow-hidden"
             >
-                <ChatBar />
+                <ChatBar socket={socket} />
                 <div className="flex flex-col w-3/4">
-                    <ChatBody />    
+                    <ChatBody messages={messages} />    
                     <ChatFooter socket={socket} />  
                 </div>     
             </Container>
