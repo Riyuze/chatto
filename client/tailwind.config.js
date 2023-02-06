@@ -2,7 +2,11 @@
 module.exports = {
     content: ["./src/**/*.{html,js,jsx}"],
     theme: {
-      extend: {},
+      extend: {
+        height: {
+          'chat': '436px'
+        }
+      },
     },
     plugins: [],
   }
