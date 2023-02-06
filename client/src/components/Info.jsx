@@ -12,7 +12,7 @@ const Info = () => {
                     <Text className="font-bold bg-slate-900">Active Users</Text>
                     <div>
                         <Card.Divider />
-                        <Text>User 1</Text>
+                        <Text>{localStorage.getItem('userName')}</Text>
                     </div>
                 </Card>
             </div>

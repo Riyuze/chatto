@@ -21,7 +21,7 @@ const Navbar = () => {
             textGradient: "45deg, $blue400 -20%, $blue800 50%",
             }} className="font-bold pb-1">Chatto</Text>
             <div className="flex items-center gap-3">
-                <Text size={15}>User</Text>
+                <Text size={15}>{localStorage.getItem('userName')}</Text>
                 <Button size="sm" color="primary" onPress={ leaveChat }>Leave</Button>
             </div>
         </div>
