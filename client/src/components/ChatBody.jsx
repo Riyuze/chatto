@@ -15,8 +15,8 @@ const ChatBody = ({messages, socket, lastMessageRef}) => {
 
     return (
         <div className="ChatBody h-full">
-            <div className="h-16 bg-slate-900 flex items-center justify-between p-3">
-                <Text className="font-bold" css={{
+            <div className="h-16 bg-slate-900 flex items-center justify-center p-3">
+                <Text blockquote className="font-bold" size={30} css={{
                     textGradient: "45deg, $blue400 -20%, $blue800 50%"
                 }}>{room}</Text>
             </div>

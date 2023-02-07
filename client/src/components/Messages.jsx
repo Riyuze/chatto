@@ -1,6 +1,7 @@
 import React from 'react';
 import Message from './Message';
 import UserMessage from './UserMessage';
+import BotMessage from './BotMessage';
 
 const Messages = ({messages, lastMessageRef}) => {
 
@@ -13,6 +14,7 @@ const Messages = ({messages, lastMessageRef}) => {
                     <Message name={message.username} text={message.text} time={message.time} key={message.id} />
                 )
             }
+            <BotMessage />
             <div ref={lastMessageRef}></div>
         </div>
     )
