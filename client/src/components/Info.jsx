@@ -24,7 +24,7 @@ const Info = ({socket}) => {
                     {
                         users.map((user) => (
                             user.username !== localStorage.getItem('userName') ?
-                            <div>
+                            <div key={user.id}>
                                 <Card.Divider/>
                                 <Text key={user.id}>{user.username}</Text>
                             </div> :
