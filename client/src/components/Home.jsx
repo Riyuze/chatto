@@ -21,7 +21,22 @@ const Home = ({socket}) => {
     const enterChat = () => {
         localStorage.setItem('userName', userName);
         socket.emit('newUser', { userName, socketID: socket.id });
-        navigate('/chat');
+        switch(Array.from(room)[0]) {
+            case "Gawr":
+                navigate('/Gawr');
+                break;
+            case "Nana":
+                navigate('/Nana');
+                break;
+            case "Zeta":
+                navigate('/Zeta');
+                break;
+            case "Watson":
+                navigate('/Watson');
+                break;
+            case "Kanaeru":
+                navigate('/Kanaeru');
+        }
     }
 
     return (

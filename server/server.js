@@ -11,8 +11,6 @@ const socketIO = require('socket.io')(http, {
     }
 })
 
-let users = [];
-
 app.use(cors());
 
 socketIO.on('connection', (socket) => {

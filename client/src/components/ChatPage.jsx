@@ -5,7 +5,7 @@ import {
     Container,
     } from '@nextui-org/react';
 
-const ChatPage = ({socket}) => {
+const ChatPage = ({socket, roomName}) => {
 
     const [messages, setMessages] = useState([]);
 
@@ -28,7 +28,7 @@ const ChatPage = ({socket}) => {
             >
                 <ChatBar socket={socket} />
                 <div className="w-3/4 h-[calc(100%-64px)]">
-                    <ChatBody messages={messages} socket={socket} lastMessageRef={lastMessageRef} />
+                    <ChatBody messages={messages} socket={socket} lastMessageRef={lastMessageRef} roomName={roomName} />
                 </div>
             </Container>
         </div>

@@ -26,7 +26,11 @@ const App = () => {
                 <div className="App">
                     <Routes>
                         <Route path="/" element={<Home socket={socket} />}></Route>
-                        <Route path="/chat" element={<ChatPage socket={socket} />}></Route>
+                        <Route path="/Gawr" element={<ChatPage socket={socket} roomName={"Gawr"} />}></Route>
+                        <Route path="/Nana" element={<ChatPage socket={socket} roomName={"Nana"}/>}></Route>
+                        <Route path="/Zeta" element={<ChatPage socket={socket} roomName={"Zeta"}/>}></Route>
+                        <Route path="/Watson" element={<ChatPage socket={socket} roomName={"Watson"}/>}></Route>
+                        <Route path="/Kanaeru" element={<ChatPage socket={socket} roomName={"Kanaeru"}/>}></Route>
                     </Routes>
                 </div>
             </BrowserRouter>
