@@ -9,8 +9,6 @@ const ChatPage = ({socket}) => {
 
     const [messages, setMessages] = useState([]);
 
-    const [typingStatus, setTypingStatus] = useState('');
-
     const lastMessageRef = useRef(null);
 
     useEffect(() => {
