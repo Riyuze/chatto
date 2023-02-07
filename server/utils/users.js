@@ -1,17 +1,17 @@
 let users = [];
 
-const userJoin = (id, username, room) => {
+userJoin = (id, username, room) => {
     const user = { id, username, room };
     users.push(user);
 
     return user;
 }
 
-const getCurrentUser = (id) => {
+getCurrentUser = (id) => {
     return users.find(user => user.id === id);
 }
 
-const userLeave = (id) => {
+userLeave = (id) => {
     const index = users.findIndex(user => user.id === id);
 
     if (index !== -1) {
@@ -19,11 +19,11 @@ const userLeave = (id) => {
     }
 }
 
-const getRoomUsers = (room) => {
+getRoomUsers = (room) => {
     return users.filter(user => user.room === room);
 }
 
-export default {
+module.exports = {
     userJoin,
     getCurrentUser,
     userLeave,

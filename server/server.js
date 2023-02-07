@@ -11,25 +11,37 @@ const socketIO = require('socket.io')(http, {
     }
 })
 
+const {
+    userJoin,
+    getCurrentUser,
+    userLeave,
+    getRoomUsers,
+  } = require("./utils/users");
+
+const { formatMessage } = require("./utils/messages");
+
 app.use(cors());
 
 socketIO.on('connection', (socket) => {
     console.log(`⚡: ${socket.id} user just connected!`);
-    
-    socket.on('disconnect', () => {
-        console.log('🔥: A user disconnected');
-        users = users.filter((user) => user.socketID !== socket.id);
-        socketIO.emit('newUserResponse', users);
-        socket.disconnect();
+
+    socket.on('newUser', (data) => {
+        const user = userJoin(data.socketID, data.username, data.room)
+        socket.join(user.room)
+        socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
+        socketIO.to(user.room).emit('roomName', user.room);
     });
 
     socket.on('message', (data) => {
-        socketIO.emit('messageResponse', data);
+        const user = getCurrentUser(socket.id)
+        socketIO.to(user.room).emit('messageResponse', formatMessage(data.username, data.text, data.id));
     });
-
-    socket.on('newUser', (data) => {
-        users.push(data);
-        socketIO.emit('newUserResponse', users);
+    
+    socket.on('disconnect', () => {
+        console.log('🔥: A user disconnected');
+        const user = userLeave(socket.id);
+        socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
+        socket.disconnect();
     });
 });
 
