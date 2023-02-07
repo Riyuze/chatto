@@ -2,7 +2,7 @@ import React from 'react';
 import Message from './Message';
 import UserMessage from './UserMessage';
 
-const Messages = ({messages}) => {
+const Messages = ({messages, lastMessageRef}) => {
 
     return (
         <div className="Messages bg-slate-800 overflow-y-scroll p-3 h-[calc(100%-64px)]">
@@ -13,6 +13,7 @@ const Messages = ({messages}) => {
                     <Message name={message.name} text={message.text} key={message.id} />
                 )
             }
+            <div ref={lastMessageRef}></div>
         </div>
     )
 }

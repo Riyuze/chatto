@@ -5,7 +5,7 @@ import {
 import Messages from './Messages';
 import ChatFooter from './ChatFooter';
 
-const ChatBody = ({messages, socket}) => {
+const ChatBody = ({messages, socket, lastMessageRef}) => {
     return (
         <div className="ChatBody h-full">
             <div className="h-16 bg-slate-900 flex items-center justify-between p-3">
@@ -13,7 +13,7 @@ const ChatBody = ({messages, socket}) => {
                     textGradient: "45deg, $blue400 -20%, $blue800 50%"
                 }}>Room Name</Text>
             </div>
-            <Messages messages={messages} />
+            <Messages messages={messages} lastMessageRef={lastMessageRef} />
             <ChatFooter socket={socket} />  
         </div>
     )
