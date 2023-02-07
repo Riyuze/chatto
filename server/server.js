@@ -30,8 +30,8 @@ socketIO.on('connection', (socket) => {
     socket.on('newUser', (data) => {
         const user = userJoin(data.socketID, data.username, data.room)
         socket.join(user.room)
-        socket.emit('messageResponse', formatMessage(botName, 'Welcome to Chatto!', "Bot"));
-        socket.broadcast.to(user.room).emit('messageResponse', formatMessage(botName, `${user.username} has joined the chat.`, "Bot"));
+        socket.emit('messageResponse', formatMessage(botName, 'Welcome to Chatto!', `Bot-${Math.random()}`));
+        socket.broadcast.to(user.room).emit('messageResponse', formatMessage(botName, `${user.username} has joined the chat.`, `Bot-${Math.random()}`));
         socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
         socketIO.to(user.room).emit('roomName', user.room);
     });
@@ -45,7 +45,7 @@ socketIO.on('connection', (socket) => {
         console.log('🔥: A user disconnected');
         const user = userLeave(socket.id);
         if (user) {
-            socketIO.to(user.room).emit('messageResponse', formatMessage(botName, `${user.username} has left the chat.`, "Bot"));
+            socketIO.to(user.room).emit('messageResponse', formatMessage(botName, `${user.username} has left the chat.`, `Bot-${Math.random()}`));
         }
         socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
         socket.disconnect();
