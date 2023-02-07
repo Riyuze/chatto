@@ -6,7 +6,7 @@ import {
 
 const BotMessage = ({name, text, time}) => {
   return (
-    <div className="BotMessage flex gap-5 mb-5 p-2">
+    <div className="BotMessage mb-5 p-2">
         <Card>
             <div className='flex justify-center items-baseline'>
                 <Text className="font-bold pt-2" size={25} css={{
