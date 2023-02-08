@@ -11,7 +11,7 @@ const UserMessage = ({text, time}) => {
                 <span className="font-light text-gray-400">{time}</span>
             </div>
             <div className="w-4/5 flex gap-3 justify-end">
-                <p className="bg-slate-400 text-black px-3 py-5 rounded-b-lg rounded-tl-lg">{text}</p>
+                <p className="bg-slate-400 text-black px-3 py-5 rounded-b-lg rounded-tl-lg max-w-sm break-words text-left">{text}</p>
             </div>
         </div>
     )
