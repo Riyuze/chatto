@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Card,
@@ -23,6 +23,13 @@ const Home = ({socket}) => {
         socket.emit('newUser', { username: userName, room: Array.from(room)[0], socketID: socket.id });
         navigate('/chat', { replace:true });
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('userName') !== null) {
+            localStorage.clear();
+            window.location.reload();
+        }
+    })
 
     return (
         <div className="Home">
