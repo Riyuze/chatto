@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ChatBar from './ChatBar';
 import ChatBody from './ChatBody';
+import { useNavigate } from 'react-router-dom';
 import { 
     Container,
     } from '@nextui-org/react';
@@ -11,6 +12,8 @@ const ChatPage = ({socket}) => {
 
     const lastMessageRef = useRef(null);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         socket.on('messageResponse', (data) => setMessages([...messages, data]));
     }, [socket, messages]);
@@ -18,6 +21,13 @@ const ChatPage = ({socket}) => {
     useEffect(() => {
         lastMessageRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
+
+    useEffect(() => {
+        if (socket.connected !== true) {
+            navigate('/');
+        }
+    })
+
 
     return (
         <div className="ChatPage h-screen items-center justify-center flex w-screen">
