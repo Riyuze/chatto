@@ -46,8 +46,8 @@ socketIO.on('connection', (socket) => {
         const user = userLeave(socket.id);
         if (user) {
             socketIO.to(user.room).emit('messageResponse', formatMessage(botName, `${user.username} has left the chat.`, `Bot-${Math.random()}`));
+            socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
         }
-        socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
         socket.disconnect();
     });
 });
