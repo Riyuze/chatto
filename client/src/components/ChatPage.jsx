@@ -26,7 +26,7 @@ const ChatPage = ({socket}) => {
         if (socket.connected !== true) {
             navigate('/', { replace:true });
         }
-    })
+    });
 
     return (
         <div className="ChatPage h-screen items-center justify-center flex w-screen">
