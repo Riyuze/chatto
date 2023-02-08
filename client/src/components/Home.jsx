@@ -51,6 +51,7 @@ const Home = ({socket}) => {
                     size="md"
                     placeholder="Username"
                     onChange={e => setUserName(e.target.value)}
+                    maxLength={10}
                 />
                 <Spacer y={1} />
                 <Dropdown closeOnSelect='true'>
