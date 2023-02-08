@@ -12,7 +12,7 @@ const Navbar = () => {
 
     const leaveChat = () => {
         localStorage.removeItem('userName');
-        navigate('/');
+        navigate('/', { replace:true });
         window.location.reload();
     }
 

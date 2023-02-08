@@ -21,7 +21,7 @@ const Home = ({socket}) => {
     const enterChat = () => {
         localStorage.setItem('userName', userName);
         socket.emit('newUser', { username: userName, room: Array.from(room)[0], socketID: socket.id });
-        navigate('/chat');
+        navigate('/chat', { replace:true });
     }
 
     return (

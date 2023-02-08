@@ -24,7 +24,7 @@ const ChatPage = ({socket}) => {
 
     useEffect(() => {
         if (socket.connected !== true) {
-            navigate('/');
+            navigate('/', { replace:true });
         }
     })
 
