@@ -25,13 +25,6 @@ const Home = ({socket}) => {
     }
 
     useEffect(() => {
-        if (localStorage.getItem('userName') !== null) {
-            localStorage.clear();
-            window.location.reload();
-        }
-    })
-
-    useEffect(() => {
         socket.on('usernameTaken', (data) => {
             if (data) {
                 Swal.fire({
@@ -41,7 +34,6 @@ const Home = ({socket}) => {
                     background: "#000000",
                     color: "#FFFFFF",
                     confirmButtonColor: '#3085d6',
-                    
                   })
             }
             else {
