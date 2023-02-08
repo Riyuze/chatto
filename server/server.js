@@ -29,11 +29,17 @@ socketIO.on('connection', (socket) => {
 
     socket.on('newUser', (data) => {
         const user = userJoin(data.socketID, data.username, data.room)
-        socket.join(user.room)
-        socket.emit('messageResponse', formatMessage(botName, 'Welcome to Chatto!', `Bot-${Math.random()}`));
-        socket.broadcast.to(user.room).emit('messageResponse', formatMessage(botName, `${user.username} has joined the chat.`, `Bot-${Math.random()}`));
-        socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
-        socketIO.to(user.room).emit('roomName', user.room);
+        if (!user) {
+            socket.emit('usernameTaken', true);
+        }
+        else {
+            socket.emit('usernameTaken', false);
+            socket.join(user.room)
+            socket.emit('messageResponse', formatMessage(botName, 'Welcome to Chatto!', `Bot-${Math.random()}`));
+            socket.broadcast.to(user.room).emit('messageResponse', formatMessage(botName, `${user.username} has joined the chat.`, `Bot-${Math.random()}`));
+            socketIO.to(user.room).emit('newUserResponse', getRoomUsers(user.room));
+            socketIO.to(user.room).emit('roomName', user.room);
+        }
     });
 
     socket.on('message', (data) => {

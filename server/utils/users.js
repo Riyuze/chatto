@@ -2,9 +2,23 @@ let users = [];
 
 userJoin = (id, username, room) => {
     const user = { id, username, room };
-    users.push(user);
 
-    return user;
+    const check = checkUser(users, user);
+
+    if (check) {
+        users.push(user);
+        return user;
+    }
+    return false;
+}
+
+checkUser = (users, user) => {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].username === user.username && users[i].room === user.room) {
+            return false
+        }
+    }
+    return true
 }
 
 getCurrentUser = (id) => {

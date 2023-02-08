@@ -7,8 +7,9 @@ import {
     Text,
     Input,
     Container,
-    Dropdown
+    Dropdown,
     } from '@nextui-org/react';
+import Swal from 'sweetalert2';
 
 const Home = ({socket}) => {
 
@@ -21,7 +22,6 @@ const Home = ({socket}) => {
     const enterChat = () => {
         localStorage.setItem('userName', userName);
         socket.emit('newUser', { username: userName, room: Array.from(room)[0], socketID: socket.id });
-        navigate('/chat', { replace:true });
     }
 
     useEffect(() => {
@@ -30,6 +30,25 @@ const Home = ({socket}) => {
             window.location.reload();
         }
     })
+
+    useEffect(() => {
+        socket.on('usernameTaken', (data) => {
+            if (data) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'This username is taken in this room!',
+                    background: "#000000",
+                    color: "#FFFFFF",
+                    confirmButtonColor: '#3085d6',
+                    
+                  })
+            }
+            else {
+                navigate('/chat', { replace:true });
+            }
+        });
+    }, [socket]);
 
     return (
         <div className="Home">
