@@ -6,7 +6,7 @@ import BotMessage from './BotMessage';
 const Messages = ({messages, lastMessageRef}) => {
 
     return (
-        <div className="Messages bg-slate-800 overflow-y-scroll p-3 h-[calc(100%-64px)]">
+        <div className="Messages bg-slate-800 overflow-y-scroll p-3 h-[calc(100%-64px)] no-scrollbar">
             {
                 messages.map((message) => 
                     message.username === "Chatto Bot" && message.id.startsWith('Bot') ?
