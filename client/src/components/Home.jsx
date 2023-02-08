@@ -31,7 +31,7 @@ const Home = ({socket}) => {
                     icon: 'error',
                     title: 'Oops...',
                     text: 'This username is taken in this room!',
-                    background: "#000000",
+                    background: "#26292B",
                     color: "#FFFFFF",
                     confirmButtonColor: '#3085d6',
                   })
