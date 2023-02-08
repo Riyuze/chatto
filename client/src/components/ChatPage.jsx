@@ -28,7 +28,6 @@ const ChatPage = ({socket}) => {
         }
     })
 
-
     return (
         <div className="ChatPage h-screen items-center justify-center flex w-screen">
             <Container
